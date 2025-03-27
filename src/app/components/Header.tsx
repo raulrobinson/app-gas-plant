@@ -25,7 +25,7 @@ export default function Header() {
               </button>
 
               {/* Menu */}
-              <nav className={`text-white absolute lg:static top-16 left-0 w-full bg-green-500 lg:flex lg:items-center lg:w-auto transition-all duration-300 ${isOpen ? "block" : "hidden"}`}>
+              <nav className={`text-white absolute lg:static top-16 left-0 w-full bg-green-400 lg:flex lg:items-center lg:w-auto transition-all duration-300 ${isOpen ? "block" : "hidden"}`}>
                   <ul className="lg:flex">
                       {menuItems.map((item, index) => (
                           <li key={index} className="relative">
@@ -41,9 +41,9 @@ export default function Header() {
 
                                       {/* Submenú */}
                                       {activeMenu === index && (
-                                          <ul className="bg-green-700 lg:absolute lg:top-full lg:left-0 lg:w-48 shadow-md">
+                                          <ul className="bg-green-600 lg:absolute lg:top-full lg:left-0 lg:w-48 shadow-md">
                                               {item.submenu.map((subItem, subIndex) => (
-                                                  <li key={subIndex} className="p-3 hover:bg-green-800">
+                                                  <li key={subIndex} className="p-3 hover:bg-green-700">
                                                       <Link href="mailto:rasysbox@hotmail.com">{subItem.label}</Link>
                                                   </li>
                                               ))}
