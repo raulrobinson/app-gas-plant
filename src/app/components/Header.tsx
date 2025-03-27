@@ -17,7 +17,7 @@ export default function Header() {
   return (
       <header className="w-full fixed top-0 bg-green-300 text-gray-700 p-4 shadow-md z-50">
           <div className="container mx-auto flex justify-between items-center">
-              <a href="/" className="text-xl font-bold">GAS PLANT</a>
+              <a href="/" className="text-xl font-bold">GAS PLANT : BQ57MOX101</a>
 
               {/* Button menu */}
               <button onClick={toggleMenu} className="lg:hidden">
