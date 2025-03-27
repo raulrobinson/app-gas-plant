@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { fieldInfo, ORDER } from "@/utils/identifiersTags";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
-import { ArrowDown, ArrowUp } from "lucide-react";
+import {ArrowDown, ArrowUp, ArrowUpIcon} from "lucide-react";
 import Loading from "@/app/components/loading";
 
 export default function DataVisualizer() {
@@ -12,6 +12,7 @@ export default function DataVisualizer() {
     const previousDataRef = useRef<Record<string, number>>({});
     const [chartData, setChartData] = useState<Record<string, { time: string; value: number }[]>>({});
     const [lastUpdated, setLastUpdated] = useState<string>("");
+    const [showScroll, setShowScroll] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
@@ -52,7 +53,18 @@ export default function DataVisualizer() {
 
         fetchData();
         const interval = setInterval(fetchData, 3000);
-        return () => clearInterval(interval);
+
+        // Show the scroll button when the user scrolls down
+        const handleScroll = () => {
+            setShowScroll(window.scrollY > 300);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            clearInterval(interval);
+            window.removeEventListener("scroll", handleScroll);
+        };
     }, []);
 
     if (!data) {
@@ -60,6 +72,10 @@ export default function DataVisualizer() {
             <Loading />
         );
     }
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
     return (
         <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -111,6 +127,15 @@ export default function DataVisualizer() {
                     </motion.div>
                 );
             })}
+
+            {showScroll && (
+                <button
+                    onClick={scrollToTop}
+                    className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
+                >
+                    <ArrowUpIcon className="h-6 w-6" />
+                </button>
+            )}
         </div>
     );
 }
