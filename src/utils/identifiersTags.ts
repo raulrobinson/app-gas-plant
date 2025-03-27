@@ -13,7 +13,7 @@ export const fieldInfo: Record<string, { label: string; unit?: string; bgColor: 
     PO2GFLO: { label: "Final Oxygen Generators", unit: "%", bgColor: "bg-green-50" },
     PSIGROM: { label: "Final Reserve Pressure", unit: "psi", bgColor: "bg-yellow-50" },
 
-    PSIGRAM: { label: "Pressure de Reserva de Aire", unit: "psi", bgColor: "bg-yellow-50" },
+    PSIGRAM: { label: "Pressure Air reserve", unit: "psi", bgColor: "bg-yellow-50" },
     PSIGLAM: { label: "Final Pressure Air", unit: "psi", bgColor: "bg-yellow-50" },
     PO2FLAM: { label: "Final Oxygen Air", unit: "%", bgColor: "bg-green-50" },
     CDPPPAM: { label: "Dew point", unit: "°C", bgColor: "bg-blue-50" },
