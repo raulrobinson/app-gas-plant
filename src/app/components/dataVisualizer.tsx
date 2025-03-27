@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { fieldInfo, ORDER } from "@/utils/identifiersTags";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
-import {ArrowDown, ArrowUp, ArrowUpIcon} from "lucide-react";
+import { ArrowDown, ArrowUp, ArrowUpIcon } from "lucide-react";
 import Loading from "@/app/components/loading";
 
 export default function DataVisualizer() {
@@ -131,7 +131,7 @@ export default function DataVisualizer() {
             {showScroll && (
                 <button
                     onClick={scrollToTop}
-                    className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
+                    className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 z-20"
                 >
                     <ArrowUpIcon className="h-6 w-6" />
                 </button>
