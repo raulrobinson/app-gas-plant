@@ -1,7 +1,12 @@
 {
-  "name": "app-ocbp",
+  "name": "app-gas-plant",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Raul Bolivar Navas",
+    "url": "https://rasysbox.com",
+    "email": "rasysbox@hotmail.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
